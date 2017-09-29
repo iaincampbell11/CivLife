@@ -6,6 +6,7 @@ import java.util.concurrent.*;
 
 public class CivLifeDriver {
 	
+	private static final Object HelpInfo = null;
 	private static Resource wood = new Resource("WOOD",100);
 	private static Resource stone = new Resource("STONE",100);
 	private static Resource food = new Resource("FOOD",100);
@@ -43,6 +44,8 @@ public class CivLifeDriver {
 		System.out.println("(P)opulation");
 		System.out.println("(B)uildings");
 		System.out.println("(A)cquire Buildings");
+		System.out.println("(H)elp");
+		System.out.println("(E)xit");
 		
 		//User decides whether they wan to view or gather resources
 		while(!done){
@@ -82,6 +85,13 @@ public class CivLifeDriver {
 				System.out.println();
 				buyBuildings();
 				done = true;	
+			} else if(userInput.equalsIgnoreCase("H")) {
+				System.out.println();
+				help();
+				done = true;
+			} else if(userInput.equalsIgnoreCase("E")) {
+				System.out.println("Thank you for playing!");
+				done = true;
 			}
 		}	
 	}//end menu
@@ -357,6 +367,56 @@ public class CivLifeDriver {
 				buyBuildings();
 			}		
 	}//end buyBuilding menu		
+	
+	public static void help() {
+		Scanner helpScan = new Scanner(System.in);
+		HelpInfo help = new HelpInfo();
+		
+		System.out.println("What do you need help with? Choose a Category");
+		System.out.println("-------------------------------------------------");
+		System.out.println("(T)he Game");
+		System.out.println("(G)ather Resources");
+		System.out.println("(P)opulation");
+		System.out.println("(B)uildings");
+		System.out.println("(A)cquire Buildings");
+		
+		String helpInput =  helpScan.nextLine();
+		boolean validHelp =  false;
+		
+		while(!validHelp) {
+			if(helpInput.equalsIgnoreCase("T")) {
+				help.gameHelp();
+				validHelp = true;
+			} else if(helpInput.equalsIgnoreCase("G")) {
+				help.resourcesHelp();
+				validHelp = true;
+			} else if(helpInput.equalsIgnoreCase("P")) {
+				help.populationHelp();
+				validHelp = true;
+			} else if(helpInput.equalsIgnoreCase("B"))  {
+				help.buildingsHelp();
+				validHelp = true;
+			} else if(helpInput.equalsIgnoreCase("A")) {
+				help.acquireBuildingsHelp();
+				validHelp = true;
+			}
+		} 
+		//If the user wants to go back to main menu
+		System.out.println("Type B to back to main menu.");
+		boolean done = false;
+		
+				while(!done) {
+					String menuBack = helpScan.nextLine();
+					if(menuBack.equalsIgnoreCase("B")) {
+						
+						System.out.println();
+						menu();
+						done = true;
+					} else {
+						System.out.println("Please type B to go back to main menu.");
+					}
+				}
+	}
 	
 	public static  String getUserName(){
 		
