@@ -3,6 +3,6 @@
 /Hut.class
 /PersonType.class
 /Resource.class
-/.gitignore
-/.project
-/.classpath
+.gitignore
+.project
+.classpath
