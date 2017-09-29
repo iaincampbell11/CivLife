@@ -36,7 +36,7 @@ public class CivLifeDriver {
 		
 		//layout of main screen
 		System.out.println();
-		System.out.println("       MENU              " + civName + "s" + " civilization");
+		System.out.println("       MENU              " + civName + "'s" + " civilization");
 		System.out.println("-----------------------------------------------");
 		System.out.println("(V)iew Rescources		 Y: " + year + "  " + "M: " + month);
 		System.out.println("(G)ather Resources");
@@ -49,7 +49,7 @@ public class CivLifeDriver {
 			
 			userInput = menuScan.nextLine();
 			
-			if(userInput.equals("V")||userInput.equals("v")) {
+			if(userInput.equalsIgnoreCase("V")) {
 				
 				System.out.println();
 				viewResources();
@@ -106,7 +106,7 @@ public class CivLifeDriver {
 			
 			userViewInput = viewScan.nextLine();
 			
-			if(userViewInput.equals("B")||userViewInput.equals("b")) {
+			if(userViewInput.equalsIgnoreCase("B")) {
 				
 				System.out.println();
 				menu();
@@ -261,7 +261,7 @@ public class CivLifeDriver {
 			
 			String userInput = viewPopScan.nextLine();
 			
-			if(userInput.equals("B")||userInput.equals("b")) {
+			if(userInput.equalsIgnoreCase("B")) {
 				
 				menu();
 				done = true;
@@ -286,7 +286,7 @@ public class CivLifeDriver {
 			
 			userInput = viewBuildingScan.nextLine();
 			
-			if(userInput.equals("B")||userInput.equals("b")) {
+			if(userInput.equalsIgnoreCase("B")) {
 				
 				System.out.println();
 				menu();
@@ -344,7 +344,7 @@ public class CivLifeDriver {
 				menu();
 			}
 			
-			if(buyAnswer.equals("B")) {
+			if(buyAnswer.equalsIgnoreCase("B")) {
 				
 				menu();
 			}
